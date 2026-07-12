@@ -122,20 +122,20 @@
   .subhead{
     display:flex;align-items:center;gap:10px;
     margin:26px 0 4px;padding:10px 14px;
-    background:#EFEBE2;border:1px solid var(--hair);border-left:3px solid var(--gold);
+    background:var(--black);border:1px solid var(--black);border-left:3px solid var(--gold);
     border-radius:2px;
   }
-  .subhead h4{margin:0;font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-deep);}
-  .subhead span{font-weight:600;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);}
+  .subhead h4{margin:0;font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);}
+  .subhead span{font-weight:600;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:#B9B4A9;}
   summary.subhead{cursor:pointer;list-style:none;transition:background .15s ease;}
   summary.subhead::-webkit-details-marker{display:none;}
-  summary.subhead:hover{background:#E7E3DA;}
-  .subhead .hint{margin-left:auto;font-weight:700;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
+  summary.subhead:hover{background:var(--ink);}
+  .subhead .hint{margin-left:auto;font-weight:700;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#B9B4A9;}
   details[open] > summary .hint::after{content:"Ocultar";}
   details:not([open]) > summary .hint::after{content:"Mostrar";}
   .subhead .tog{
     flex:0 0 auto;display:inline-flex;align-items:center;
-    color:var(--gold-deep);
+    color:var(--gold);
     transition:transform .2s ease;
   }
   .subhead .tog svg{width:14px;height:14px;display:block;}
