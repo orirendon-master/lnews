@@ -200,7 +200,11 @@
     .ev .where{text-align:left;}
     .brand{font-size:22px;}
     .brand .brand-tag{font-size:12px;letter-spacing:0.24em;}
-    .sec-head h3{white-space:normal;}
+    /* Encabezados de sección en móvil: título a línea completa,
+       chip y count en su propia fila — nada se comprime */
+    .sec-head{flex-wrap:wrap;gap:8px 10px;}
+    .sec-head h3{white-space:normal;flex:1 1 100%;font-size:17px;}
+    .sec-head .count{margin-left:auto;}
   }
 </style>
 </head>
