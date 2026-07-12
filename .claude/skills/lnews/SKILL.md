@@ -74,6 +74,12 @@ de su grupo) y SOLO en 7 mercados: Chile, México, Colombia, Perú, Argentina, U
 
 Cada ítem: chip(s) de país, titular en español, 1-2 frases, y fuente + enlace.
 
+TAGS DE TIPO DE SECCIÓN (regla dura): cada sec-head lleva junto al h3 un chip
+`<span class="sec-tag">` (borde dorado, texto var(--gold-deep), uppercase pequeño) que
+identifica el tipo de contenido: AUTORIDAD → "Contenido"; MERCADO & NEGOCIO, BEAUTY TECH
+e COMPROMISO & TALENTO → "Noticias"; EVENTOS → "Agenda". Así el lector diferencia de un
+vistazo las secciones informativas de la sección de ideas de contenido.
+
 ## AUTORIDAD: INTRO FIJA (contenido fijo — regla dura)
 - La sección abre SIEMPRE con esta intro en `<p class="sec-intro">` (se copia tal cual):
   "Esta sección reúne inspiración y recomendaciones de contenido para cumplir la tarea del
