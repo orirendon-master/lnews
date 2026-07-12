@@ -164,9 +164,11 @@ Cada ítem (3-5 por edición) incluye obligatoriamente:
   "L'Oréal Authority Digest — LATAM". No volver al nombre antiguo.
 - SUB-BLOQUES COLAPSABLES (regla dura): dentro de Autoridad, cada sub-bloque es un
   `<details class="subsec" open>` con `<summary class="subhead">` como toggle. El summary
-  es una BARRA clickeable visible: fondo #EFEBE2, borde 1px var(--hair), borde izquierdo
-  3px var(--gold), padding, hover que oscurece a #E7E3DA. A la derecha lleva el hint
-  `.hint` que muestra "Ocultar"/"Mostrar" según el estado (vía ::after y details[open])
+  es una BARRA NEGRA clickeable que destaca sobre el fondo claro: fondo var(--black),
+  borde izquierdo 3px var(--gold), padding, hover que aclara a var(--ink). Tipografía
+  sobre el negro: título h4 en var(--gold), descriptor y hint en #B9B4A9, chevron en
+  var(--gold). A la derecha lleva el hint `.hint` que muestra "Ocultar"/"Mostrar" según
+  el estado (vía ::after y details[open])
   y un CHEVRON SVG (`.tog`, trazo currentColor en var(--gold-deep), 14px) que apunta
   hacia ABAJO cuando está colapsado y rota 180° al abrir — el patrón estándar de
   acordeón según NN/g: chevron, no flechas de navegación ni círculos (marker nativo
