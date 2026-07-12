@@ -78,7 +78,12 @@ TAGS DE TIPO DE SECCIÓN (regla dura): cada sec-head lleva junto al h3 un chip
 `<span class="sec-tag">` (borde dorado, texto var(--gold-deep), uppercase pequeño) que
 identifica el tipo de contenido: AUTORIDAD → "Contenido"; MERCADO & NEGOCIO, BEAUTY TECH
 e COMPROMISO & TALENTO → "Noticias"; EVENTOS → "Agenda". Así el lector diferencia de un
-vistazo las secciones informativas de la sección de ideas de contenido.
+vistazo las secciones informativas de la sección de ideas de contenido. Para que el
+título nunca se comprima: el count del sec-head es CORTO (ej. "12 ideas", nunca frases
+largas), los h3 llevan white-space:nowrap en desktop, y chip y count llevan
+white-space:nowrap. En MÓVIL (≤620px) el sec-head usa flex-wrap con el h3 a ancho
+completo (flex:1 1 100%, font-size 17px, white-space normal) y el chip + count pasan a
+su propia fila debajo — el título nunca comparte línea apretado con el chip.
 
 ## AUTORIDAD: INTRO FIJA (contenido fijo — regla dura)
 - La sección abre SIEMPRE con esta intro en `<p class="sec-intro">` (se copia tal cual):
