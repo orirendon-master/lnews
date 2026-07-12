@@ -68,8 +68,9 @@
   .sec-head{display:flex;align-items:baseline;gap:14px;padding-bottom:8px;margin-bottom:14px;border-bottom:1px solid var(--black);}
   .sec-head h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;letter-spacing:0.02em;margin:0;color:var(--black);}
   .sec-head h3::first-letter{color:var(--gold-deep);}
-  .sec-head .count{margin-left:auto;font-weight:600;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
-  .sec-tag{font-weight:700;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-deep);border:1px solid var(--gold);padding:2px 8px;border-radius:2px;align-self:center;}
+  .sec-head .count{margin-left:auto;font-weight:600;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+  .sec-head h3{white-space:nowrap;}
+  .sec-tag{font-weight:700;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-deep);border:1px solid var(--gold);padding:2px 8px;border-radius:2px;align-self:center;white-space:nowrap;}
 
   .item{padding:15px 0 16px;border-bottom:1px solid var(--hair);}
   .item:last-child{border-bottom:none;}
@@ -199,6 +200,7 @@
     .ev .where{text-align:left;}
     .brand{font-size:22px;}
     .brand .brand-tag{font-size:12px;letter-spacing:0.24em;}
+    .sec-head h3{white-space:normal;}
   }
 </style>
 </head>
@@ -256,7 +258,7 @@
 
   <!-- AUTORIDAD: IDEAS DE CONTENIDO -->
   <section class="section" id="autoridad">
-    <div class="sec-head"><h3>Autoridad — Ideas de contenido</h3><span class="sec-tag">Contenido</span><span class="count">12 ideas · news + usuarios</span></div>
+    <div class="sec-head"><h3>Autoridad — Ideas de contenido</h3><span class="sec-tag">Contenido</span><span class="count">12 ideas</span></div>
     <p class="sec-intro">Esta sección reúne inspiración y recomendaciones de contenido para cumplir la tarea del 4CAST de <b>Backlink Quality</b> y <b>Backlink Quantity</b>: conseguir enlaces de calidad y en cantidad suficiente para que las marcas sean "entidades confiables" que la IA cite en sus respuestas. Las ideas salen de dos fuentes: las noticias de la quincena y lo que preguntan los usuarios.</p>
 
     <details class="subsec" id="seo-offpage">
