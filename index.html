@@ -64,7 +64,7 @@
   .stat .cap{font-weight:500;font-size:10px;letter-spacing:0.04em;color:#CFC9BD;margin-top:10px;line-height:1.45;}
 
   /* SECTIONS */
-  .section{margin-bottom:34px;}
+  .section{margin-bottom:34px;scroll-margin-top:58px;}
   .sec-head{display:flex;align-items:baseline;gap:14px;padding-bottom:8px;margin-bottom:14px;border-bottom:1px solid var(--black);}
   .sec-head h3{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:23px;letter-spacing:0.01em;margin:0;color:var(--black);}
   .sec-head h3::first-letter{color:var(--gold-deep);}
@@ -74,6 +74,7 @@
   .item:last-child{border-bottom:none;}
   .item .flags{margin:0 0 7px;display:flex;gap:6px;flex-wrap:wrap;}
   .country{font-weight:700;font-size:9.5px;letter-spacing:0.1em;color:var(--gold-deep);border:1px solid var(--gold);padding:2px 7px;border-radius:2px;}
+  .brandchip{font-weight:700;font-size:9.5px;letter-spacing:0.1em;color:#fff;background:var(--black);border:1px solid var(--black);padding:2px 7px;border-radius:2px;}
   .item h4{font-weight:600;font-size:17px;line-height:1.3;margin:0 0 6px;color:var(--ink);}
   .item p{margin:0 0 8px;font-size:14.5px;color:var(--ink-soft);}
   .src{font-weight:600;font-size:11px;color:var(--muted);letter-spacing:0.01em;}
@@ -95,6 +96,70 @@
   .foot{margin-top:24px;padding-top:16px;border-top:2px solid var(--gold);font-weight:500;font-size:11px;color:var(--muted);letter-spacing:0.02em;line-height:1.75;}
   .foot b{color:var(--ink);font-weight:700;}
 
+  /* NAV DE SECCIONES (sticky) */
+  .secnav{
+    position:sticky;top:0;z-index:20;
+    margin:0 -20px 30px;padding:10px 20px;
+    background:var(--paper);border-bottom:1px solid var(--hair);
+    display:flex;flex-wrap:nowrap;gap:6px;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+  }
+  .secnav::-webkit-scrollbar{display:none;}
+  .secnav a{
+    flex:0 0 auto;white-space:nowrap;
+    font-weight:700;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--ink-soft);text-decoration:none;
+    border:1px solid var(--hair);padding:3px 10px;border-radius:2px;
+    transition:border-color .15s ease,color .15s ease;
+  }
+  .secnav a:hover{border-color:var(--gold);color:var(--gold-deep);}
+
+  /* CALLOUTS (recomendaciones accionables) */
+  .sec-intro{margin:-6px 0 16px;font-size:13.5px;line-height:1.55;color:var(--muted);}
+
+  .reco{
+    background:#EFEBE2;
+    border-left:2px solid var(--gold);
+    padding:8px 11px;
+    margin-top:8px;
+    border-radius:2px;
+  }
+
+  /* COMPARTIR */
+  .mast-share{margin-top:14px;}
+  .share-chip{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:5px 14px;border-radius:2px;
+    background:transparent;border:1px solid var(--gold);color:var(--gold-deep);
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:10px;
+    letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;
+    transition:background .15s ease,color .15s ease;
+  }
+  .share-chip svg{width:11px;height:11px;flex:0 0 11px;}
+  .share-chip:hover{background:var(--gold);color:var(--black);}
+  .masthead .share-chip{color:var(--gold);}
+  .masthead .share-chip:hover{color:var(--black);}
+
+  /* FOOTER: LINKS Y LOGO */
+  .foot-links{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .ip-chip{
+    display:inline-flex;align-items:center;
+    padding:5px 16px;border-radius:2px;
+    background:#0F0F0F;color:#fff;
+    font-weight:800;font-size:12.5px;letter-spacing:0.02em;
+  }
+
+  /* VOLVER ARRIBA */
+  .totop{
+    position:fixed;bottom:18px;right:18px;z-index:30;
+    width:40px;height:40px;border-radius:50%;
+    border:1px solid var(--gold);background:var(--black);color:var(--gold);
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;cursor:pointer;
+    opacity:0;pointer-events:none;transition:opacity .2s ease,background .15s ease,color .15s ease;
+  }
+  .totop.vis{opacity:1;pointer-events:auto;}
+  .totop:hover{background:var(--gold);color:var(--black);}
+
   @media (max-width:620px){
     .masthead{flex-direction:column;align-items:flex-start;}
     .brand{font-size:31px;}
@@ -114,6 +179,12 @@
       <h1 class="brand">L'OR<span class="acc">É</span>AL</h1>
       <div class="mast-sub">Brand &amp; Market Radar — LATAM</div>
       <div class="mast-meta">Edición <b>#01</b> · Semana del <b>7 jul 2026</b> · CL · MX · CO · PE · AR · UY · PA</div>
+      <div class="mast-share">
+        <button class="share-chip" type="button" onclick="compartir(this)" aria-label="Compartir este radar">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+          <span>Compartir</span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -123,6 +194,8 @@
     <span><span class="dot">◆</span> <b>7</b> mercados</span>
     <span><span class="dot">◆</span> Solo marca <b>L'Oréal</b> en LATAM</span>
     <span><span class="dot">◆</span> Cada ítem con fuente</span>
+    <span><span class="dot">◆</span> <b>8</b> ideas SEO off page</span>
+    <span><span class="dot">◆</span> <b>4</b> señales de usuarios</span>
   </div>
 
   <!-- HERO -->
@@ -139,8 +212,18 @@
     </div>
   </section>
 
+  <!-- NAV DE SECCIONES -->
+  <nav class="secnav" aria-label="Secciones del radar">
+    <a href="#mercado">Mercado</a>
+    <a href="#beauty-tech">Beauty Tech</a>
+    <a href="#compromiso">Compromiso</a>
+    <a href="#eventos">Eventos</a>
+    <a href="#seo-offpage">SEO Off Page</a>
+    <a href="#voz-usuario">Voz del Usuario</a>
+  </nav>
+
   <!-- MERCADO -->
-  <section class="section">
+  <section class="section" id="mercado">
     <div class="sec-head"><h3>Mercado &amp; Negocio</h3><span class="count">03</span></div>
 
     <article class="item">
@@ -166,7 +249,7 @@
   </section>
 
   <!-- BEAUTY TECH -->
-  <section class="section">
+  <section class="section" id="beauty-tech">
     <div class="sec-head"><h3>Beauty Tech &amp; Innovación</h3><span class="count">02</span></div>
 
     <article class="item">
@@ -185,7 +268,7 @@
   </section>
 
   <!-- COMPROMISO -->
-  <section class="section">
+  <section class="section" id="compromiso">
     <div class="sec-head"><h3>Compromiso &amp; Talento</h3><span class="count">02</span></div>
 
     <article class="item">
@@ -204,7 +287,7 @@
   </section>
 
   <!-- EVENTOS -->
-  <section class="section">
+  <section class="section" id="eventos">
     <div class="sec-head"><h3>Eventos</h3><span class="count">03</span></div>
 
     <div class="ev">
@@ -238,13 +321,159 @@
     </div>
   </section>
 
+  <!-- SEO OFF PAGE -->
+  <section class="section" id="seo-offpage">
+    <div class="sec-head"><h3>SEO Off Page — Ideas de la semana</h3><span class="count">08 · hasta 3 por división</span></div>
+
+    <article class="item">
+      <div class="flags"><span class="brandchip">CPD · Maybelline NY · L'Oréal Paris · NYX Prof. Make-up</span><span class="country">CO</span></div>
+      <h4>Publireportaje — "Dentro de Funza: así se fabrica el maquillaje que Colombia exporta a 14 países"</h4>
+      <p>Recorrido por la planta que produce Maybelline, L'Oréal Paris y NYX, con voces de ingenieras locales y datos de exportación. Contenido aditivo: cuenta la historia industrial, no el producto.</p>
+      <p class="src"><b>Señal:</b> Funza, rumbo a ser la planta #1 de maquillaje del mundo · <a href="https://www.valoraanalitik.com/entrevista-canales-emergentes-innovacion-productos-apuestas-loreal-groupe/">Valora Analitik</a></p>
+      <p class="src reco"><b>Medio sugerido:</b> prensa de negocios colombiana (La República, Forbes Colombia) — la señal es industrial y de inversión, audiencia B2B que da autoridad de dominio y credibilidad país al enlace.</p>
+    </article>
+
+    <article class="item">
+      <div class="flags"><span class="brandchip">CPD · Garnier · L'Oréal Paris</span><span class="country">REGIONAL</span></div>
+      <h4>Editorial — "Las startups que quieren hacer más sostenible tu rutina de belleza"</h4>
+      <p>Editorial sobre innovación sostenible en belleza a partir de la convocatoria L'AcceleratOR en 7 países de la región, con voces de startups postulantes y el puente natural hacia las líneas verdes del consumo masivo.</p>
+      <p class="src"><b>Señal:</b> L'AcceleratOR busca "agentes del cambio" en la región · <a href="https://jcmagazine.com/loreal-groupe-busca-al-gran-innovador-de-latinoamerica/">JC Magazine</a></p>
+      <p class="src reco"><b>Medio sugerido:</b> medio de sostenibilidad o emprendimiento regional (ej. verticales verdes de prensa de negocios) — la señal es de innovación sostenible y ese ecosistema enlaza con gusto historias de startups; enlace afín al posicionamiento "green beauty" de Garnier.</p>
+    </article>
+
+    <article class="item">
+      <div class="flags"><span class="brandchip">CPD · Maybelline NY · NYX Prof. Make-up</span><span class="country">MX</span></div>
+      <h4>Publireportaje — "De alumna a maquillista profesional: 10 años de Belleza por un Futuro"</h4>
+      <p>Historias de graduadas del programa que hoy viven del maquillaje, con datos del décimo aniversario (+5.000 mujeres formadas). Contenido aditivo con ángulo humano, no promocional.</p>
+      <p class="src"><b>Señal:</b> "Belleza por un Futuro" cumple 10 años · <a href="https://www.eluniversal.com.mx/de-ultima/loreal-celebra-10-anos-de-belleza-por-un-futuro-con-una-nueva-generacion-de-mujeres-graduadas/">El Universal</a></p>
+      <p class="src reco"><b>Medio sugerido:</b> medio mexicano de lifestyle o impacto social — el aniversario ya tiene cobertura nacional y el ángulo de historias personales encaja en esas secciones; enlace de dominio nacional de alto tráfico para las marcas de maquillaje.</p>
+    </article>
+
+    <article class="item">
+      <div class="flags"><span class="brandchip">DPP · L'Oréal Professionnel · Kérastase</span><span class="country">CL</span></div>
+      <h4>Entrevista — "Luz infrarroja para el cabello: qué es y por qué ganó en CES 2026"</h4>
+      <p>Entrevista a un educador técnico o estilista embajador sobre la tecnología del Light Straight + Multi-styler premiado en CES, y qué significa para el salón profesional en Chile.</p>
+      <p class="src"><b>Señal:</b> Dos premios de innovación en CES 2026 · <a href="https://portalredsalud.cl/2026/01/09/loreal-refuerza-su-liderazgo-en-beauty-tech-al-presentar-en-ces-2026-dos-soluciones-revolucionarias-que-incorporan-el-poder-de-la-luz-infrarroja-al-cuidado-del-cabello-y-la-piel/">Portal Red Salud (CL)</a></p>
+      <p class="src reco"><b>Medio sugerido:</b> portal de belleza/lifestyle chileno con sección de tendencias capilares — la señal ya circuló en prensa CL y el formato entrevista aporta el experto que esos medios buscan; enlace temáticamente afín al dominio profesional.</p>
+    </article>
+
+    <article class="item">
+      <div class="flags"><span class="brandchip">DPP · L'Oréal Professionnel · Kérastase</span><span class="country">MX</span></div>
+      <h4>Entrevista — "El oficio de estilista como motor de movilidad social"</h4>
+      <p>Conversación con graduadas en estilismo de Belleza por un Futuro y sus formadores: qué demanda hoy el salón mexicano y cómo se profesionaliza el oficio. A partir de la señal corporativa del décimo aniversario.</p>
+      <p class="src"><b>Señal:</b> "Belleza por un Futuro" cumple 10 años · <a href="https://www.eluniversal.com.mx/de-ultima/loreal-celebra-10-anos-de-belleza-por-un-futuro-con-una-nueva-generacion-de-mujeres-graduadas/">El Universal</a></p>
+      <p class="src reco"><b>Medio sugerido:</b> medio local mexicano con sección de emprendimiento o trabajo — el ángulo laboral abre puertas fuera de la prensa de belleza y acerca la división profesional a una audiencia nueva; enlace de dominio informativo generalista.</p>
+    </article>
+
+    <article class="item">
+      <div class="flags"><span class="brandchip">LDB · La Roche-Posay · Vichy · CeraVe</span><span class="country">MX</span></div>
+      <h4>Editorial — "¿Puede la IA diagnosticar tu piel? Lo que opinan los dermatólogos"</h4>
+      <p>Editorial con dermatólogos mexicanos sobre diagnóstico de piel asistido por IA, a partir del dato de que 39% de los consumidores de L'Oréal ya usa IA y del México Tech Hub.</p>
+      <p class="src"><b>Señal:</b> L'Oréal convierte a México en su hub de Beauty Tech con IA · <a href="https://www.xataka.com.mx/robotica-e-ia/plan-l-oreal-mexico-no-vender-maquillaje-convertir-al-pais-hub-tecnologia-para-belleza-ia">Xataka México</a></p>
+      <p class="src reco"><b>Medio sugerido:</b> medio de salud o vertical de dermatología en México — LDB vive de la recomendación médica: un enlace desde un dominio de salud transfiere la autoridad E-E-A-T que más pesa para esta división.</p>
+    </article>
+
+    <article class="item">
+      <div class="flags"><span class="brandchip">LDB · Vichy · La Roche-Posay</span><span class="country">AR</span></div>
+      <h4>Colaboración — "La ciencia detrás de tu piel: conversaciones con científicas argentinas"</h4>
+      <p>Serie o pieza con investigadoras del ecosistema For Women in Science sobre ciencia aplicada al cuidado de la piel, aprovechando el reconocimiento a Raquel Lía Chan. A partir de la señal corporativa del premio.</p>
+      <p class="src"><b>Señal:</b> Científica argentina, laureada For Women in Science 2026 · <a href="https://pe.fashionnetwork.com/news/L-oreal-unesco-reconoce-a-una-cientifica-argentina-en-la-edicion-2026-de-por-las-mujeres-en-la-ciencia,1833442.html">FashionNetwork</a></p>
+      <p class="src reco"><b>Medio sugerido:</b> medio argentino de ciencia o divulgación — el premio ya es noticia nacional y el ángulo "mujeres + ciencia + piel" da autoridad científica, el activo E-E-A-T más valioso para las marcas dermocosméticas.</p>
+    </article>
+
+    <article class="item">
+      <div class="flags"><span class="brandchip">LUXE · Lancôme · Kiehl's · YSL Beauty</span><span class="country">UY</span></div>
+      <h4>Colaboración — "65 años de belleza en Uruguay: las marcas que llegaron primero"</h4>
+      <p>Pieza de heritage con la prensa premium uruguaya: cómo el primer mercado LATAM del grupo formó la relación del país con el lujo, con Lancôme como hilo conductor. A partir de la señal corporativa del aniversario.</p>
+      <p class="src"><b>Señal:</b> 65 años en Uruguay, el primer mercado del grupo en LATAM · <a href="https://www.busqueda.com.uy/free/loreal-groupe-celebra-sus-65-anos-uruguay-la-vez-que-proyecta-un-desarrollo-muy-grande-los-proximos-anos-n5393084">Búsqueda</a></p>
+      <p class="src reco"><b>Medio sugerido:</b> revista lifestyle premium uruguaya (Galería de Búsqueda, Paula) — el aniversario ya tiene cobertura en ese ecosistema y la audiencia de alto poder adquisitivo coincide con el comprador LUXE; enlace de nicho premium difícil de conseguir de otro modo.</p>
+    </article>
+  </section>
+
+  <!-- VOZ DEL USUARIO -->
+  <section class="section" id="voz-usuario">
+    <div class="sec-head"><h3>Voz del Usuario — Lo que pregunta la gente</h3><span class="count">04 · selección curada</span></div>
+    <p class="sec-intro">Esta sección escucha lo que las personas dicen y preguntan sobre las marcas —en foros, reseñas y redes— para entender la demanda real y convertirla en ideas de contenido aditivo: para nuestros sitios o para off page.</p>
+
+    <article class="item">
+      <div class="flags"><span class="brandchip">LDB · CeraVe</span><span class="country">ES · GLOBAL</span></div>
+      <h4>El skincare "aburrido" que funciona — pero ¿cuál me toca a mí?</h4>
+      <p>Las reseñas en español premian a CeraVe por lo funcional: sin fragancia, precio accesible y respaldo dermatológico (4/5 en Proyecto Nosotras). La duda recurrente del usuario es cuál producto corresponde a su tipo de piel, y ya hay retailers respondiéndola con guías propias.</p>
+      <p class="src"><b>Fuente:</b> <a href="https://www.proyectonosotras.com/reviews/cerave-opiniones/">Proyecto Nosotras</a> · <a href="https://www.hautboutique.com/blogs/blog/guia-cerave-encuentra-la-opcion-ideal-para-tu-tipo-de-piel">Haut Boutique</a></p>
+      <p class="src reco"><b>Contenido que responde:</b> guía "¿qué CeraVe es para mi piel?" con dermatólogo local + FAQ optimizada para búsqueda — ataca directamente la pregunta más repetida antes de que la sigan capitalizando terceros.</p>
+    </article>
+
+    <article class="item">
+      <div class="flags"><span class="brandchip">LDB · CeraVe</span><span class="country">ES · GLOBAL</span></div>
+      <h4>La voz escéptica: "¿las ceramidas son claim publicitario o realidad?"</h4>
+      <p>Blogs independientes de cosmetología analizan con lupa si la fórmula cumple lo que promete. Es la perspectiva crítica que más influye en el comprador informado, y hoy nadie de la marca conversa en ese terreno.</p>
+      <p class="src"><b>Fuente:</b> <a href="https://cienciaycosmetica.com/2018/07/26/ceramidas-cerave-reclamo-publicitario-o-realidad/">Ciencia y cosmética</a></p>
+      <p class="src reco"><b>Contenido que responde:</b> editorial técnico con evidencia (estudios, concentraciones, mecanismo de las ceramidas 1, 3 y 6-II) firmado por experto — el público escéptico solo se convence con datos, y ese contenido gana enlaces de otros blogs científicos.</p>
+    </article>
+
+    <article class="item">
+      <div class="flags"><span class="brandchip">CPD · Maybelline NY</span><span class="country">CL</span></div>
+      <h4>Sky High: entre el hype de TikTok y las opiniones divididas</h4>
+      <p>La máscara sigue viral, pero la conversación real está partida: reseñas chilenas en iHerb la celebran mientras otras reportan grumos y un cepillo demasiado flexible; en YouTube en español se preguntan si "hace milagros o es lo que todos dicen".</p>
+      <p class="src"><b>Fuente:</b> <a href="https://cl.iherb.com/r/maybelline-lash-sensational-sky-high-mascara-801-very-black-0-24-fl-oz-7-2-ml/104334?p=2">Reseñas iHerb Chile</a> · <a href="https://www.youtube.com/watch?v=PFSrnkkQlCo">Reseña en YouTube</a></p>
+      <p class="src reco"><b>Contenido que responde:</b> tutorial honesto de aplicación (cómo evitar grumos, cuántas capas) y comparativa entre máscaras de la propia marca — responde a la objeción real en vez de repetir el hype, que es lo que el usuario ya no cree.</p>
+    </article>
+
+    <article class="item">
+      <div class="flags"><span class="brandchip">LDB · CeraVe · La Roche-Posay</span><span class="country">MX</span></div>
+      <h4>La farmacia mexicana como destino de skincare en TikTok</h4>
+      <p>Tendencia al alza: videos de "must buy skin care in Mexico" convierten a la farmacia local en parada obligada; usuarios y visitantes comparan precios y disponibilidad de dermocosmética frente a otros países.</p>
+      <p class="src"><b>Fuente:</b> <a href="https://www.tiktok.com/discover/must-buy-skin-care-in-mexico?lang=en">TikTok — must buy skin care in Mexico</a></p>
+      <p class="src reco"><b>Contenido que responde:</b> guía verificada de disponibilidad y rutinas de farmacia avaladas por dermatólogos mexicanos — captura búsquedas de compradores locales y turistas de skincare mientras la tendencia está activa.</p>
+    </article>
+  </section>
+
   <!-- FOOTER -->
   <div class="foot">
     <b>L'Oréal · Brand &amp; Market Radar — LATAM</b> — generado el vie 10 jul 2026.<br>
     Cobertura solo de la marca L'Oréal en Chile, México, Colombia, Perú, Argentina, Uruguay y Panamá · cada ítem cita su fuente real · verifica fechas de eventos en la fuente antes de accionar con el cliente.<br>
     Digest interno para trabajo de cliente. L'Oréal y sus marcas son propiedad de L'Oréal Groupe.
+    <div class="foot-links">
+      <span class="ip-chip" aria-label="iProspect">iprospect</span>
+      <button class="share-chip" type="button" onclick="compartir(this)" aria-label="Compartir este radar">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+        <span>Compartir</span>
+      </button>
+    </div>
   </div>
 
 </div>
+
+<button class="totop" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">↑</button>
+
+<script>
+async function compartir(btn){
+  const data = {
+    title: "L'Oréal · Brand & Market Radar — LATAM",
+    text: "Radar semanal de la marca L'Oréal en LATAM: noticias, ideas SEO off page y voz del usuario",
+    url: location.href
+  };
+  if (navigator.share) {
+    try { await navigator.share(data); } catch(e) { /* usuario canceló */ }
+  } else {
+    const lbl = btn.querySelector('span');
+    try {
+      await navigator.clipboard.writeText(data.url);
+      lbl.textContent = '¡Enlace copiado!';
+    } catch(e) {
+      window.prompt('Copia el enlace:', data.url);
+    }
+    setTimeout(() => { lbl.textContent = 'Compartir'; }, 2000);
+  }
+}
+
+/* Enlaces externos: abrir en pestaña nueva sin sacar al lector del radar.
+   Los enlaces internos (anclas #) no se tocan. */
+document.querySelectorAll('a[href^="http"]').forEach(a => { a.target='_blank'; a.rel='noopener'; });
+
+/* Botón volver arriba: aparece después de un scroll largo. */
+const _totop = document.querySelector('.totop');
+addEventListener('scroll', () => _totop.classList.toggle('vis', scrollY > 600), {passive:true});
+</script>
 </body>
 </html>
